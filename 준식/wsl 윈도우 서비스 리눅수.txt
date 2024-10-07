@@ -1,0 +1,108 @@
+wsl 윈도우 서비스 리눅수
+
+wsl --list --online
+입력하면 
+설치할수 있는 버전들이 보임
+
+ubount-20.04 설치할것
+
+wsl -- install -d ubuntu-20.04
+입력하면
+
+윈도우즈에 ubuntu Linux 설치됨
+
+설치완료 되면
+Enter new UNIX username : 
+뜨는데 설치해 주면됨.
+패스워드도 동일하게 해주면 됨
+
+잠시기다리면 프롬포트가 뜸
+
+
+$hostname, 치고 user 치면 나옴
+
+사용하기 불편하기 때문에 windows terminal 이라는게 있음
+그냥 검색창에 검색해서 설치하면됨
+
+설치했을때 설정 - 프로필 추가 - 에서 ubunt 선택해서 만들면됨
+이전 터미널들 보다 사용하기 편해서 설치 하는것.
+
+미니콘다 페이지 
+윈도우 64 클릭
+밑에 있음
+
+한줄한줄 카피
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+
+리눅스에다 미니콘다 설치하는 과정임
+
+만약 콘다를 못찾는다 라는 명령어가 나오면
+source .bashrc 입력하면됨
+
+
+다시 들어가면 앞에 (base) 라고 뜸
+그말은 콘다가 정상적으로 동작한닫는 ㄸ스
+
+그다음 이전에 했던것처럼 새로운 가상환경 만들기
+
+conda config --add channels conda -forge
+conda config --set channel_priority strict
+conda config --show channels
+
+conda create -n tf2.17 python 3.12 -y
+
+nvida-smi
+하면 설치된 콘다 드라이버버전, 시스템 등등 확인가능
+
+
+conda activate  tf2.17 
+로 이동
+
+pip install tensorflow[and-cuda]
+다 설치되면
+$ python 
+하고 들어가면됨
+
+import tensorflow as tf
+tf __version--
+하면 버전 확인가능
+
+tf.config.list_physical_devices('GPU')
+했을때 []안에 gpu뜨면 정상적으로 설치된거, 괄호만 뜨면 실패
+exit()
+ 치고 나오면 됨
+
+다시 터미널창으로 돌아와서 
+$ code 입력
+
+-----------------vscode--------------------
+폴더 열떄 내pc-리눅스-우분트 안에다가 폴더를 만들면됨. tf2.17로 만들것
+
+
+vs코드에서 wsl 환경을 연동해서 사용
+
+확장프로그램에서 wsl 검색해서 설치하면됨.
+연결안되면 컨트로쉬프트피 눌러서
+wsl: wsl에 연결 
+누르면 됨
+
+vscode 화면 좌측하단에 wsl_ubunta 연결이 떠야됨
+우분트 안에도 다시 주피터 노트북, 파이썬 설치 해줘야됨.
+(확인 해보면 로컬에 설치된거랑 아이콘 모양이 다름)
+
+그다음 폴더 열기 누르면 기존거랑 다름
+우본트 밑에 tf2.17선택 해서 폴더 열기
+
+그럼 주피터 노트북 열고 파일이름 gpu_notebook 로 해서 작업
+코드 
+import tensorflow as tf
+
+print(f"teasorflow version:{tf.__version__}")
+print(f"{tf.configlist_physical_devices('GPU')}")
+------------------------------------------------------------
+터미널 창에서 conda install  블라블라블라 깔아주고
+------------------------------------------------------------
+
