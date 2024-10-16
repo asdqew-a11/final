@@ -2,13 +2,13 @@ import requests
 import bs4
 import pandas as pd
 
-
+# openapi 데이터 스크래핑 코드
 
 url = 'http://apis.data.go.kr/openapi/service/ElevatorOperationService/getOperationInfoList?serviceKey=FdZ%2BYFNFFCi%2FRJ0pFSzDx2uu6VMCGkzBCrVaFikqQb7Gd6Cxpz%2BqKm80th92%2FE9KOI3LicXYK1NRNsXLTvqOpQ%3D%3D&pageNo=1&numOfRows=10000&buld_address=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC'
 params = {
     'serviceKey': 'FdZ+YFNFFCi/RJ0pFSzDx2uu6VMCGkzBCrVaFikqQb7Gd6Cxpz+qKm80th92/E9KOI3LicXYK1NRNsXLTvqOpQ==', 
     'pageNo': '1', 
-    'numOfRows': '200000',
+    'numOfRows': '10000',
     'buld_address': '서울특별시 강남구'
     
 }
